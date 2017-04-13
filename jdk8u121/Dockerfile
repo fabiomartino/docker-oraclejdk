@@ -10,7 +10,7 @@
 # Example:  docker run -it --rm ermac/oracle:jdk8u121 java -version
 #
 
-FROM ermac/debian:stretch
+FROM ermac/debian:stretch-scm
 
 MAINTAINER Fabio Martino <fabiomartino@libero.it>
 
@@ -24,8 +24,7 @@ ENV JAVA_VERSION_MAJOR=8 \
     PATH=${PATH}:/opt/java/bin \
     LANG=C.UTF-8
 
-RUN apt-get update -q && \
-    apt-get install -q -y --no-install-recommends ca-certificates curl unzip && \
+RUN apt-get update && apt-get install -y --no-install-recommends unzip && \
     curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /tmp/java.tar.gz \
       http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}${JAVA_VERSION_URL_TOKEN}/${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz && \
     gunzip /tmp/java.tar.gz && \
@@ -65,8 +64,7 @@ RUN apt-get update -q && \
            ${JAVA_HOME}/jre/lib/ext/nashorn.jar \
            ${JAVA_HOME}/jre/lib/oblique-fonts \
            ${JAVA_HOME}/jre/lib/plugin.jar \
-           /tmp/* /var/cache/apk/* && \
-    apt-get remove --purge -y ca-certificates curl unzip && \
-    apt-get autoremove --purge -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+           /var/lib/apt/lists/* \
+           /var/cache/apt/* \
+           /tmp/* \
+           /var/tmp/*
