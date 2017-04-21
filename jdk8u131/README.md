@@ -1,4 +1,4 @@
-Docker Oracle JDK 8u121
+Docker Oracle JDK 8u131
 =======================
 
 ## Summary
