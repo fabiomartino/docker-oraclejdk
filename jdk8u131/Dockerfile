@@ -16,9 +16,10 @@ MAINTAINER Fabio Martino <fabiomartino@libero.it>
 
 ENV JAVA_VERSION=8u131 \
     JAVA_HOME=/usr/lib/jvm \
-    JVM_OPTS="" \
     PATH=${PATH}:/usr/lib/jvm/bin \
     LANG=C.UTF-8
+#    JRE_HOME=${JAVA_HOME}/jre \
+#    JVM_OPTS="" \
 
 # JAVA_VERSION_URL_TOKEN d54c1d3a095b4ff2b6607d096fa80163
 # JDK_MD5SUM 75b2cb2249710d822a60f83e28860053
@@ -40,37 +41,6 @@ RUN (wget --progress=bar:force --no-check-certificate -O /tmp/jdk-8u131-linux-x6
            ${JAVA_HOME}/COPYRIGHT \
            ${JAVA_HOME}/LICENSE \
            ${JAVA_HOME}/README.html \
-           ${JAVA_HOME}/lib/missioncontrol \
-           ${JAVA_HOME}/lib/visualvm \
-           ${JAVA_HOME}/lib/*javafx* \
-           ${JAVA_HOME}/jre/plugin \
-           ${JAVA_HOME}/jre/bin/javaws \
-           ${JAVA_HOME}/jre/bin/jjs \
-           ${JAVA_HOME}/jre/bin/keytool \
-           ${JAVA_HOME}/jre/bin/orbd \
-           ${JAVA_HOME}/jre/bin/pack200 \
-           ${JAVA_HOME}/jre/bin/policytool \
-           ${JAVA_HOME}/jre/bin/rmid \
-           ${JAVA_HOME}/jre/bin/rmiregistry \
-           ${JAVA_HOME}/jre/bin/servertool \
-           ${JAVA_HOME}/jre/bin/tnameserv \
-           ${JAVA_HOME}/jre/bin/unpack200 \
-           ${JAVA_HOME}/jre/lib/javaws.jar \
-           ${JAVA_HOME}/jre/lib/deploy* \
-           ${JAVA_HOME}/jre/lib/desktop \
-           ${JAVA_HOME}/jre/lib/*javafx* \
-           ${JAVA_HOME}/jre/lib/*jfx* \
-           ${JAVA_HOME}/jre/lib/amd64/libdecora_sse.so \
-           ${JAVA_HOME}/jre/lib/amd64/libprism_*.so \
-           ${JAVA_HOME}/jre/lib/amd64/libfxplugins.so \
-           ${JAVA_HOME}/jre/lib/amd64/libglass.so \
-           ${JAVA_HOME}/jre/lib/amd64/libgstreamer-lite.so \
-           ${JAVA_HOME}/jre/lib/amd64/libjavafx*.so \
-           ${JAVA_HOME}/jre/lib/amd64/libjfx*.so \
-           ${JAVA_HOME}/jre/lib/ext/jfxrt.jar \
-           ${JAVA_HOME}/jre/lib/ext/nashorn.jar \
-           ${JAVA_HOME}/jre/lib/oblique-fonts \
-           ${JAVA_HOME}/jre/lib/plugin.jar \
            /var/lib/apt/lists/* \
            /var/cache/apt/* \
            /tmp/* \
